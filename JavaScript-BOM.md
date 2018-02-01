@@ -1,0 +1,29 @@
+## BOM基础
+* 打开、关闭窗口
+    * open
+        * 蓝色理想运行代码功能
+    * close
+        * 关闭时提示问题
+* 常用属性
+    * window.navigatior.userAgent
+    * window.location
+
+## 窗口尺寸、工作区尺寸
+* 可视距离
+    * document.documentElement.clientWidth
+    * document.documentElement.clientHeight
+* 滚动距离
+    * document.body.scrollTop
+    * document.documentElement.scrollTop
+
+## 常用方法和事件
+* 系统对话框
+    * 警告框：alert（“内容”），没有返回值
+    * 选择框：confirm（“提问的内容”），返回boolean
+    * 输入框：prompt（），返回字符串或null
+* window对象常用事件    
+    * onload
+    * onsroll
+    * onresize
+    * 例子：回到顶部按钮、侧边栏广告
+        * 闪烁问题

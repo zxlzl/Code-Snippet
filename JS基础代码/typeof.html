@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <script>
+        var a=12;
+        //alert(typeof a);//number
+
+        a='abc';
+        //alert(typeof a);//string
+
+        a=true;
+        //alert(typeof a);//boolean 布尔
+
+        /*window.onload=function () {
+            a=document.getElementById('div1');
+            alert(typeof a);//object
+        };*/
+        /*  object 对象
+            基本类型：12、'abc'、true
+            复合类型：对象    */
+
+        a=function () {
+          alert('abc');
+        };
+        alert(typeof a);//function
+
+        var b;
+        alert(typeof b);//undefined
+
+        /*undefined  1.没有定义 2.虽然定义了，没有赋值*/
+
+    </script>
+
+</head>
+<body>
+<div id="div1">
+    asdf
+</div>
+</body>
+</html>

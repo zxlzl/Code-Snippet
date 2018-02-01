@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript">
+        document.onclick=function (ev) {
+            //var oEvent = ev||event;
+            //alert(oEvent.clientX+","+oEvent.clientY);
+
+            //ie
+            //alert(event.clientX+","+event.clientY);
+
+            //ff
+            //alert(ev.clientX+","+ev.clientY);
+
+            //兼容写法
+            if (ev){
+                alert(ev.clientX+","+ev.clientY);
+            }else {
+                alert(event.clientX+","+event.clientY);
+            }
+        }
+    </script>
+</head>
+<body>
+
+</body>
+</html>

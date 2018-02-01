@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript">
+        window.onload=function () {
+            var oUl=document.getElementById('ul1');
+            //oUl.firstElementChild.style.background='red';
+
+            var oFirst=oUl.firstElementChild||oUl.firstChild;
+            oFirst.style.background='red';
+        }
+    </script>
+</head>
+<body>
+<ul id="ul1">
+    <li></li>
+    <li></li>
+</ul>
+</body>
+</html>

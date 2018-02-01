@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        var arr=[95,545,2,5,6,4,854];
+        //arr.sort();//只认识字符串，按数字的字母顺序排序
+
+        //让sort按照大小排序
+        arr.sort(function (num1, num2) {
+            return num1-num2;//从小到大
+            //return num2-num1;//从大到小
+        });
+
+        alert(arr);
+    </script>
+</head>
+<body>
+
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        window.onload=function () {
+            var oA=document.getElementsByTagName('a');
+            var i=0;
+
+            for(i=0;i<oA.length;i++){
+                oA[i].onclick=function () {
+                    this.parentNode.style.display='none';
+                }
+            }
+        }
+    </script>
+
+</head>
+<body>
+<ul>
+    <li>asd<a href="javascript:;">隐藏</a></li>
+    <li>asgfd<a href="javascript:;">隐藏</a></li>
+    <li>ghkjh<a href="javascript:;">隐藏</a></li>
+    <li>cvbn<a href="javascript:;">隐藏</a></li>
+</ul>
+</body>
+</html>

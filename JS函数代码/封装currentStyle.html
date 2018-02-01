@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            width: 300px;
+        }
+        div {
+            width: 200px;
+        }
+        #div1 {
+            width: 100px;
+            height: 100px;
+            background: red;
+        }
+        </style>
+        <script>
+            //哪个元素
+            //哪个样式
+            function getStyle(obj, attr) {
+                if(obj.currentStyle){
+                    return obj.currentStyle[attr];
+                }else {
+                    return getComputedStyle(obj, false)[attr];
+                }
+            }
+
+            window.onload=function () {
+                var oDiv=document.getElementById('div1');
+                alert(getStyle(oDiv,'backGround'));
+            }
+        </script>
+</head>
+<body>
+<div id="div1"></div>
+</body>
+</html>

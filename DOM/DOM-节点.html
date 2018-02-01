@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        window.onload=function () {
+            var oUl=document.getElementById('ul1');
+            //alert(oUl.childNodes.length);//弹出7，空格也算节点
+            oUl.childNodes[1].style.background='red';
+        }
+    </script>
+</head>
+<body>
+<ul id="ul1">
+    <li>111</li>
+    <li>222</li>
+    <li>333</li>
+</ul>
+</body>
+</html>

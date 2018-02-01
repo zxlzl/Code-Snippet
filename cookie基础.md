@@ -1,0 +1,33 @@
+## cookie基础
+* 什么是cookie
+    * 页面用来保存信息
+        * 比如：自动登录、记住用户名
+    * cookie的特性
+        * 同一个网站中所有页面共享一套cookie
+        * 数量、大小有限
+        * 过期时间
+    * JS中使用cookie
+        * document.cookie
+
+## 使用cookie
+* cookie的使用
+    * 设置cookie
+        * 格式：名字=值
+        * 不会覆盖
+        * 过期时间：expires=时间
+            * 日期对象的使用
+        * 封装函数
+    * 读取cookie
+        * 字符串的分割
+    * 删除cookie
+        * 已经过期
+
+## 使用cookie（2）
+* cookie的使用
+    * 例子
+        * 用cookie记录上一次Div的位置
+            * 鼠标抬起——记录位置
+            * window.onload——读取位置
+        * 用cookie记录上次登录的用户名
+            * 提交时——记录用户名
+            * window.onload——读取用户名

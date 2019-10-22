@@ -9,8 +9,11 @@
 * 5.cookie
 
 ## 二、node
-## 三、C：js方法的c实现
+## 三、C：js方法的c语言实现
 * 1.parseInt 
 * 2.toString 
 * 3.indexOf  
 * 4.IntArray（动态数组）
+
+## 四、算法
+* 1.深度遍历树结构 

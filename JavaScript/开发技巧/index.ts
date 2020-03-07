@@ -209,8 +209,8 @@ switch (true) {
  * 克隆数组
  * arr => [0, 1, 2]
  */
-const _arr = [0, 1, 2];
-const arr3 = [..._arr];
+const _arr0 = [0, 1, 2];
+const arr3 = [..._arr0];
 
 /**
  * 合并数组
@@ -264,7 +264,7 @@ const arr11 = [undefined, null, "", 0, false, NaN, 1, 2].filter(Boolean);
 /**
  * 异步累计
  */
-async function Todo(t){return t}
+async function Todo(t) { return t }
 async function Fun(deps) {
     return deps.reduce(async (t, v) => {
         const dep = await t;
@@ -273,8 +273,8 @@ async function Fun(deps) {
         return dep;
     }, Promise.resolve({}));
 }
-async function test(){
-    const result = await Fun([1,2,3]); // 需在async包围下使用
+async function test() {
+    const result = await Fun([1, 2, 3]); // 需在async包围下使用
 }
 test()
 
@@ -303,8 +303,8 @@ arr13 = [...arr, 2];
  */
 const arr14 = [0, 1, 1, 2, 2, 2];
 const count = arr14.reduce((t, v) => {
-	t[v] = t[v] ? ++t[v] : 1;
-	return t;
+    t[v] = t[v] ? ++t[v] : 1;
+    return t;
 }, {});
 
 /**
@@ -341,11 +341,275 @@ const randomItem = arr18[Math.floor(Math.random() * arr18.length)];
  */
 const arr19 = [...new Array(3).keys()];
 
+/**
+ * 创建指定长度且值相等的数组
+ * arr20 => [0, 0, 0]
+ */
+const arr20 = new Array(3).fill(0);
 
-
-// https://mp.weixin.qq.com/s/r8IXLh8ot7lJXGPtG38dqA
-
-
-function type(target, type) {
-    const whichtype = Object.prototype.toString.call(target).replace(/\[object (\w+)\]/, '$1').toLowerCase()
+/**
+ * reduce代替map和filter
+ */
+const _arr = [0, 1, 2];
+{
+    // map arr0 arr1 => [0, 2, 4]
+    const arr0 = _arr.map(v => v * 2);
+    const arr1 = _arr.reduce((t, v) => {
+        t.push(v * 2);
+        return t;
+    }, []);
 }
+{
+    // filter arr0 arr1 => [1, 2]
+    const arr0 = _arr.filter(v => v > 0);
+    const arr1 = _arr.reduce((t, v) => {
+        v > 0 && t.push(v);
+        return t;
+    }, []);
+}
+{
+    // map和filter arr0 arr1 => [4]
+    const arr0 = _arr.map(v => v * 2).filter(v => v > 2);
+    const arr1 = _arr.reduce((t, v) => {
+        v = v * 2;
+        v > 2 && t.push(v);
+        return t;
+    }, []);
+}
+
+// Object
+
+/**
+ * 克隆对象
+ * obj2 obj3 => { a: 0, b: 1, c: 2 }
+ */
+const _obj = { a: 0, b: 1, c: 2 }; // 以下方法任选一种
+const obj2 = { ..._obj };
+const obj3 = JSON.parse(JSON.stringify(_obj));
+
+/**
+ * 合并对象
+ * obj6 => { a: 0, b: 1, c: 3, d: 4, e: 5 }
+ */
+const obj4 = { a: 0, b: 1, c: 2 };
+const obj5 = { c: 3, d: 4, e: 5 };
+const obj6 = { ...obj4, ...obj5 };
+
+/**
+ * 对象字面量
+ * link => "Production Address"
+ */
+const env = "prod";
+const link = {
+    dev: "Development Address",
+    test: "Testing Address",
+    prod: "Production Address"
+}[env];
+
+/**
+ * 对象变量属性
+ * obj7 => { a: 0, b: 1, d: 2 }
+ */
+const flag3 = false;
+const obj7 = {
+    a: 0,
+    b: 1,
+    [flag3 ? "c" : "d"]: 2
+};
+
+/**
+ * 创建纯空对象
+ * obj8 => {} obj8.prototype为undefined
+ */
+const obj8 = Object.create(null);
+
+/**
+ * 删除对象无用属性
+ * rest => { b: 1, c: 2 }
+ */
+const obj9 = { r: 0, b: 1, c: 2 }; // 只想拿b和c
+const { r, ...rest } = obj9;
+
+/**
+ * 解构对象属性嵌套
+ * d1 e1 => 2 3
+ */
+const obj10 = { a: 0, b: 1, c: { d1: 2, e1: 3 } };
+const { c: { d1, e1 } } = obj10;
+
+/**
+ * 解构对象属性别名
+ * a2 d2 e2 => 0 1 2
+ */
+const obj11 = { a2: 0, b: 1, c: 2 };
+const { a2, b: d2, c: e2 } = obj11;
+
+/**
+ * 解构对象属性默认值
+ * a b d3 => 0 1 3
+ */
+const obj12 = { a3: 0, b3: 1, c: 2 };
+const { a3, b3 = 2, d3 = 3 } = obj12;
+
+// Function
+
+/**
+ * 函数自执行
+ */
+const Func1 = function () { }(); // 常用
+
+(function () { })(); // 常用
+(function () { }()); // 常用
+[function () { }()];
+
++ function () { }();
+- function () { }();
+~ function () { }();
+// !function() {}();
+
+new function () { };
+new function () { }();
+void function () { }();
+typeof function () { }();
+// delete function() {}();
+
+// 1, function() {}();
+// 1 ^ function() {}();
+// 1 > function() {}();
+
+/**
+ * 隐式返回值
+ * 只能用于单语句返回值箭头函数，如果返回值是对象必须使用()包住
+ */
+let Func2 = function (name) {
+    return "I Love " + name;
+};
+// 换成
+Func2 = name => "I Love " + name;
+
+/**
+ * 一次性函数
+ * 适用于运行一些只需执行一次的初始化代码
+ */
+function Func3() {
+    console.log("x");
+    Func3 = function () {
+        console.log("y");
+    }
+}
+
+/**
+ * 惰性载入函数
+ * 函数内判断分支较多较复杂时可大大节约资源开销
+ */
+function Func4() {
+    if (a === b) {
+        console.log("x");
+    } else {
+        console.log("y");
+    }
+}
+// 换成
+function Func5() {
+    if (a === b) {
+        Func5 = function () {
+            console.log("x");
+        }
+    } else {
+        Func5 = function () {
+            console.log("y");
+        }
+    }
+    return Func5();
+}
+
+/**
+ * 检测非空参数
+ */
+function IsRequired() {
+    throw new Error("param is required");
+}
+function Func6(name = IsRequired()) {
+    console.log("I Love " + name);
+}
+Func6(); // "param is required"
+Func6("You"); // "I Love You"
+
+/**
+ * 字符串创建函数
+ */
+const Func7 = new Function("name", "console.log(\"I Love \" + name)");
+Func7("lzl")
+
+/**
+ * 优雅处理错误信息
+ */
+try {
+    Func();
+} catch (e) {
+    location.href = "https://stackoverflow.com/search?q=[js]+" + e.message;
+}
+
+/**
+ * 优雅处理Async/Await参数
+ */
+function AsyncTo(promise) {
+    return promise.then(data => [null, data]).catch(err => [err]);
+}
+async function test1() {
+    const [err, res] = await AsyncTo(Func());
+}
+test1()
+
+/**
+ * 优雅处理多个函数返回值
+ */
+function Func8() {
+    return Promise.all([
+        fetch("/user"),
+        fetch("/comment")
+    ]);
+}
+async function test2() {
+    const [user, comment] = await Func8(); // 需在async包围下使用
+}
+test2()
+
+// DOM
+
+/**
+ * 显示全部DOM边框
+ * 调试页面元素边界时使用
+ */
+[].forEach.call($$("*"), dom => {
+    dom.style.outline = "1px solid #" + (~~(Math.random() * (1 << 24))).toString(16);
+});
+
+/**
+ * 自适应页面
+ * 页面基于一张设计图但需做多款机型自适应，元素尺寸使用rem进行设置
+ */
+function AutoResponse(width = 750) {
+    const target = document.documentElement;
+    target.clientWidth >= 600
+        ? (target.style.fontSize = "80px")
+        : (target.style.fontSize = target.clientWidth / width * 100 + "px");
+}
+
+/**
+ * 过滤XSS
+ */
+function FilterXss(content) {
+    let elem = document.createElement("div");
+    elem.innerText = content;
+    const result = elem.innerHTML;
+    elem = null;
+    return result;
+}
+
+/**
+ * 存取LocalStorage
+ * 反序列化取，序列化存
+ */
+const love = JSON.parse(localStorage.getItem("love"));
+localStorage.setItem("love", JSON.stringify("I Love You"));

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // async function Todo(t) { return t }
+        // async function Fun(deps) {
+        //     return deps.reduce(async (t, v) => {
+        //         const dep = await t;
+        //         const version = await Todo(v);
+        //         dep[v] = version;
+        //         return dep;
+        //     }, Promise.resolve({}));
+        // }
+        // async function test() {
+        //     const result = await Fun([1, 2, 3]); // 需在async包围下使用
+        //     console.log(result);
+        // }
+        // test()
+
+        const arr14 = [0, 1, 1, 2, 2, 2];
+        const count = arr14.reduce((t, v) => {
+            console.log(t,t[v]);
+            t[v] = t[v] ? ++t[v] : 1;
+            return t;
+        }, {});
+    </script>
+</body>
+
+</html>

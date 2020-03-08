@@ -1,4 +1,4 @@
-# Study-Note
+# Code-Snippet
 
 ## 一、JavaScript
 
